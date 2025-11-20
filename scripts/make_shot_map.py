@@ -6,7 +6,7 @@ from src.visualize.pitch import shot_map
 app = typer.Typer()
 
 @app.command()
-def plot(match_id:2275117, int):
+def plot(match_id: int):
     shots_path = Path("data/processed") / f"shots_{match_id}.parquet"
     if not shots_path.exists(): raise SystemExit("Run build_features.py shots-table first.")
     shots = pd.read_parquet(shots_path)
